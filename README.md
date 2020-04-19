@@ -26,5 +26,7 @@ kubectl rollout history deployment nginx-deployment
 kubectl rollout undo deployment nginx-deployment
 # Edit deployment
 kubectl edit deployment nginx-deployment
+# Add Label
+kubectl label nodes minikube disktype=ssd
 
 
