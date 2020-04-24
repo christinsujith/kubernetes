@@ -1,6 +1,6 @@
-#Mysql setup
+# Mysql setup
 kubectl create -f mysql-database.yaml
-#Logs
+# Logs
 kubectl logs --follow pod/database
-#Login into Mysql DB container
+# Login into Mysql DB container
 kubectl exec database -it -- mysql -u root -p
