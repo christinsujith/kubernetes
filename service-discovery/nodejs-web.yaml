@@ -1,0 +1,30 @@
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+      name: nodejs-deployment
+   spec:
+      replicas: 3
+      selector:
+         matchLabels:
+            app: nodejs-web
+      template:
+         metadata:
+            labels:
+               app: nodejs-web
+         spec:
+            containers:
+            - name: kubernetes-demo
+              image: christinsujith/latestnode
+              command: ["node", "app.js"]
+              ports:
+              - name: nodejs-port
+                containerPort: 3000
+              env:
+                - name: MYSQL_HOST
+                  value: database-service
+                - name: MYSQL_USER
+                  value: csu
+                - name: MYSQL_PASSWORD
+                  value: root
+                - name: MYSQL_DATABASE
+                  value: db_csu
